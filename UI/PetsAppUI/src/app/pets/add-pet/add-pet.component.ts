@@ -13,11 +13,13 @@ export class AddPetComponent implements OnInit {
   @Input() Pet:any;
   Name: string = "";
   Age: number = 0;
+  IsAgeAproximated: boolean = false;
 
 
   ngOnInit(): void {
     this.Name = this.Pet.Name;
-    this.Age = this.Pet.Age
+    this.Age = this.Pet.Age;
+    this.IsAgeAproximated = this.Pet.IsAgeAproximated;
   }
 
   AddPet()
@@ -26,7 +28,8 @@ export class AddPetComponent implements OnInit {
     {
       Id: 0,
       Name: this.Name,
-      Age: this.Age
+      Age: this.Age,
+      IsAgeAproximated: this.IsAgeAproximated
     }
     
     this.petsApiService.addPet(newPet).subscribe(res => { alert(res.toString()) });
