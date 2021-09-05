@@ -1,3 +1,24 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#addPetModal"
+data-backdrop = "static" data-keyboard = "false" (click) = addPetClick()>
+    Add new Pet
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPetModal">New Pet</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click) = "closeAddPetClick()" ></button>
+            </div>
+            <div class="modal-body">
+                <app-add-pet [Pet] = "NewPet" *ngIf ="ActivateAddPet"></app-add-pet>
+            </div>
+        </div>
+    </div>
+</div>
+
 <table class ="table table-striped">
     <thead>
         <tr>

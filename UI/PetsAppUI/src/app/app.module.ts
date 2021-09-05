@@ -8,11 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PETsAPIService } from './Shared/PETsAPI.service';
 import { PetsComponent } from './pets/pets.component';
+import { AddPetComponent } from './pets/add-pet/add-pet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PetsComponent
+    PetsComponent,
+    AddPetComponent
   ],
   imports: [
     BrowserModule,

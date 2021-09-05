@@ -1,0 +1,13 @@
+<div class = "form-group row">
+    <label class = "col-sm-2 col-form-label">Pet Name</label>
+    <div class = "col-sm-8">
+        <input type = "text" class = "form-control" [(ngModel)] ="Name"
+        placeholder = "pet's name">
+    </div>
+    <div class = "col-sm-8">
+        <input type = "text" class = "form-control" [(ngModel)] ="Age"
+        placeholder = "pet's age">
+    </div>
+</div>
+
+<button (click)="AddPet()" class="btn btn-primary"></button>
