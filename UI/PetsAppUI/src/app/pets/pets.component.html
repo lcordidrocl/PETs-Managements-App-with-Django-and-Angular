@@ -32,6 +32,8 @@ data-backdrop = "static" data-keyboard = "false">
             <td>{{pet.Id}}</td>
             <td>{{pet.Name}}</td>
             <td>{{pet.Age}}</td>
+            <button class ="btn btn-close"
+            (click)="deletePet(pet.Id)"></button>
         </tr>
     </tbody>
 </table>

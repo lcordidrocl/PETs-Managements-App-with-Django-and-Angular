@@ -18,18 +18,23 @@ export class PetsComponent implements OnInit {
   ngOnInit(): void {
     this.getPets();
   }
-  
-  closeAddPetClick()
-  {
+
+  closeAddPetClick() {
     this.getPets();
   }
 
   getPets() {
     this.petsApiService.getPets()
-    .subscribe(
-      pets => {
-        this.Pets = pets
-      }
+      .subscribe(
+        pets => {
+          this.Pets = pets
+        }
+      );
+  }
+
+  deletePet(id: number) {
+    this.petsApiService.deletePet(id).subscribe(
+      data => { this.Pets = this.getPets() }
     );
   }
 }

@@ -31,6 +31,6 @@ export class PETsAPIService
 
     deletePet(id: number)
     {   
-        return this.httpClient.delete(this.baseURL + `/${id}` )
+        return this.httpClient.delete(this.baseURL + `/${id}`);
     }
 }
