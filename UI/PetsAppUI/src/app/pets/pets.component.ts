@@ -18,21 +18,9 @@ export class PetsComponent implements OnInit {
   ngOnInit(): void {
     this.getPets();
   }
-
-  addPetClick()
-  {
-    this.NewPet =
-    {
-      Id: 0,
-      Name: "",
-      Age: 0
-    }
-    this.ActivateAddPet = true;
-  }
-
+  
   closeAddPetClick()
   {
-    this.ActivateAddPet = false;
     this.getPets();
   }
 
