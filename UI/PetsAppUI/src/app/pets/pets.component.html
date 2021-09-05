@@ -1,1 +1,16 @@
-<p>pets works!</p>
+<table class ="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pet of Pets">
+            <td>{{pet.Id}}</td>
+            <td>{{pet.Name}}</td>
+            <td>{{pet.Age}}</td>
+        </tr>
+    </tbody>
+</table>
