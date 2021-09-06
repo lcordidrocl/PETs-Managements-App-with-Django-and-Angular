@@ -33,8 +33,14 @@ export class PetsComponent implements OnInit {
   }
 
   deletePet(id: number) {
-    this.petsApiService.deletePet(id).subscribe(
-      data => { this.Pets = this.getPets() }
-    );
+    this.petsApiService.deletePet(id)
+    .subscribe({
+      next: data => {
+        this.Pets = this.getPets();
+      },
+      error: error => {
+        console.error(error);
+      }
+    });
   }
 }

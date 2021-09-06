@@ -25,6 +25,7 @@ class PetsApi(APIView):
         try:
             existingPet = Pet.objects.get(Id = id)
             existingPet.delete()
+            return Response(status = status.HTTP_204_NO_CONTENT)
         except Pet.DoesNotExist:
             return Response(status = status.HTTP_404_NOT_FOUND)
 

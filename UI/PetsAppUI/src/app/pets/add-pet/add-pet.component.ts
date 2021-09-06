@@ -32,6 +32,13 @@ export class AddPetComponent implements OnInit {
       IsAgeAproximated: this.IsAgeAproximated
     }
     
-    this.petsApiService.addPet(newPet).subscribe(res => { alert(res.toString()) });
+    this.petsApiService.addPet(newPet)
+    .subscribe({
+      next: data=> {},
+      error: error => {
+        console.error(error);
+      }
+
+    });
   }
 }
