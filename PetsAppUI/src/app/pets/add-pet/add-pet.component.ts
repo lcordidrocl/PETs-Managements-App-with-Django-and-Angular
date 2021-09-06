@@ -38,7 +38,6 @@ export class AddPetComponent implements OnInit {
       error: error => {
         console.error(error);
       }
-
     });
   }
 }
