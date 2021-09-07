@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
 import { IPet } from '../models/IPet';
+import { Pet } from '../models/Pet';
 
 @Component({
   selector: 'app-add-pet',
@@ -13,10 +15,7 @@ export class AddPetComponent implements OnInit {
 
   @Output() newPetSuccessEvent = new EventEmitter<IPet>();
 
-  Name: string = "";
-  Age: number = 0;
-  IsAgeAproximated: boolean = false;
-
+  newPet = new Pet();
 
   ngOnInit(): void {
   }
@@ -26,17 +25,15 @@ export class AddPetComponent implements OnInit {
     var newPet = 
     {
       Id: 0,
-      Name: this.Name,
-      Age: this.Age,
-      IsAgeAproximated: this.IsAgeAproximated
+      Name: this.newPet.Name,
+      Age: this.newPet.Age,
+      IsAgeAproximated: this.newPet.IsAgeAproximated
     }
     
     this.petsApiService.addPet(newPet)
     .subscribe({
       next: data=> {
-        this.Name = "";
-        this.Age = 0;
-        this.IsAgeAproximated = false;
+        newPet = new Pet();
         this.newPetSuccessEvent.emit(data);
       },
       error: error => {
