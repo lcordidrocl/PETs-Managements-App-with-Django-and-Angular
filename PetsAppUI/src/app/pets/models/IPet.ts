@@ -1,7 +1,7 @@
 export interface IPet
 {
-    id: number,
-    name: string,
-    age: number,
-    isAgeAproximated: boolean
+    Id: number,
+    Name: string,
+    Age: number,
+    IsAgeAproximated: boolean
 }

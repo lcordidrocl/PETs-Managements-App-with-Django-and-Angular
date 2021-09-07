@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PETsAPIService } from '../Shared/PETsAPI.service';
+import { IPet } from './models/IPet';
 
 @Component({
   selector: 'app-pets',
@@ -8,7 +9,7 @@ import { PETsAPIService } from '../Shared/PETsAPI.service';
 })
 export class PetsComponent implements OnInit {
 
-  Pets: any = [];
+  Pets: IPet[] = [];
   constructor(private petsApiService: PETsAPIService) { }
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class PetsComponent implements OnInit {
     this.petsApiService.deletePet(id)
     .subscribe({
       next: data => {
-        this.Pets = this.getPets();
+        this.getPets();
       },
       error: error => {
         console.error(error);
