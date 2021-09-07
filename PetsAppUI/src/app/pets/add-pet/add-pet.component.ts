@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
+import { IPet } from '../models/IPet';
 
 @Component({
   selector: 'app-add-pet',
@@ -9,6 +10,8 @@ import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
 export class AddPetComponent implements OnInit {
 
   constructor(private petsApiService: PETsAPIService) { }
+
+  @Output() newPetSuccessEvent = new EventEmitter<IPet>();
 
   Name: string = "";
   Age: number = 0;
@@ -34,6 +37,7 @@ export class AddPetComponent implements OnInit {
         this.Name = "";
         this.Age = 0;
         this.IsAgeAproximated = false;
+        this.newPetSuccessEvent.emit(data);
       },
       error: error => {
         console.error(error);

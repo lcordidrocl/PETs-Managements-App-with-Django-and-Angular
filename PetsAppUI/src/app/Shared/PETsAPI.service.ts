@@ -25,9 +25,9 @@ export class PETsAPIService
     }
     */
 
-    addPet(pet: any)
+    addPet(pet: IPet)
     {
-        return this.httpClient.post(this.baseURL, pet);
+        return this.httpClient.post<IPet>(this.baseURL, pet);
     }
 
     deletePet(id: number)
