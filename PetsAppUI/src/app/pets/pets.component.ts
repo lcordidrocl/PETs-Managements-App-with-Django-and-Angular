@@ -9,10 +9,6 @@ import { PETsAPIService } from '../Shared/PETsAPI.service';
 export class PetsComponent implements OnInit {
 
   Pets: any = [];
-
-  NewPet: any;
-  ActivateAddPet: boolean = false;
-
   constructor(private petsApiService: PETsAPIService) { }
 
   ngOnInit(): void {
