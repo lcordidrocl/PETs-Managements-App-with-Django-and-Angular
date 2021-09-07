@@ -10,16 +10,12 @@ export class AddPetComponent implements OnInit {
 
   constructor(private petsApiService: PETsAPIService) { }
 
-  @Input() Pet:any;
   Name: string = "";
   Age: number = 0;
   IsAgeAproximated: boolean = false;
 
 
   ngOnInit(): void {
-    this.Name = this.Pet.Name;
-    this.Age = this.Pet.Age;
-    this.IsAgeAproximated = this.Pet.IsAgeAproximated;
   }
 
   AddPet()
@@ -34,7 +30,11 @@ export class AddPetComponent implements OnInit {
     
     this.petsApiService.addPet(newPet)
     .subscribe({
-      next: data=> {},
+      next: data=> {
+        this.Name = "";
+        this.Age = 0;
+        this.IsAgeAproximated = false;
+      },
       error: error => {
         console.error(error);
       }
