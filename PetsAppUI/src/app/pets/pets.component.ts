@@ -16,10 +16,6 @@ export class PetsComponent implements OnInit {
     this.getPets();
   }
 
-  closeAddPetClick() {
-    this.getPets();
-  }
-
   getPets() {
     this.petsApiService.getPets()
       .subscribe(
