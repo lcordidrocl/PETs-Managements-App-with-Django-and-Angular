@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
+import { PetsApiService } from 'src/app/Shared/PetsApi.service';
 
 @Component({
   selector: 'app-add-pet',
@@ -8,7 +8,7 @@ import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
 })
 export class AddPetComponent implements OnInit {
 
-  constructor(private petsApiService: PETsAPIService) { }
+  constructor(private petsApiService: PetsApiService) { }
 
   @Input() Pet:any;
   Name: string = "";
