@@ -33,7 +33,9 @@ export class AddPetComponent implements OnInit {
     this.petsApiService.addPet(newPet)
     .subscribe({
       next: data=> {
-        this.newPet = new Pet();
+        this.newPet.Name = "";
+        this.newPet.Age = 0;
+        this.newPet.IsAgeAproximated=false;
         this.newPetSuccessEvent.emit(data);
       },
       error: error => {

@@ -1,4 +1,6 @@
-export class Pet {
+import { IPet } from "./IPet";
+
+export class Pet implements IPet {
     constructor(
         public Id: number = 0,
         public Name: string = '',
