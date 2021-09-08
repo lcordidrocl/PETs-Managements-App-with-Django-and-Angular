@@ -20,6 +20,8 @@ export class AddPetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){}
+
   AddPet()
   {
     var newPet = 
