@@ -24,14 +24,12 @@ data-backdrop = "static" data-keyboard = "false">
         <tr>
             <th>Name</th>
             <th>Age (years)</th>
-            <th>Is Age Aproximated</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let pet of Pets">
             <td>{{pet.Name}}</td>
             <td>{{pet.Age}}</td>
-            <td>{{pet.IsAgeAproximated}}</td>
             <button class ="btn btn-close"
             (click)="deletePet(pet.Id)"></button>
         </tr>
