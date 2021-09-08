@@ -1,24 +1,24 @@
-<div class = "form-group row">
-    <div class = "row">
-        <label class = "col-sm-2 col-form-label">Name</label>
-        <div class = "col-sm-7">
-            <input type = "text" class = "form-control" id = "name" [(ngModel)] ="newPet.Name" placeholder = "pet's name" required>
+<form class="form-group row" #petForm="ngForm">
+    <div class="row">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newPet.Name" placeholder="pet's name" required #name="ngModel">
+            <label [hidden]="name.valid || name.pristine"> name required</label>
         </div>
     </div>
-    <div class = "row">
-        <label class = "col-sm-2 col-form-label">Age</label>
-        <div class = "col-sm-7">
-            <input type = "text" class = "form-control" id = "age" [(ngModel)] ="newPet.Age" placeholder = "pet's age" required>
+    <div class="row">
+        <label class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="age" name="age" [(ngModel)]="newPet.Age" placeholder="pet's age in years" required #age="ngModel">
         </div>
         <div class="form-check col-sm-2">
-            <input class="form-check-input" type="checkbox" id="isAgeAproximated" [(ngModel)]="newPet.IsAgeAproximated">
+            <input class="form-check-input" type="checkbox" id="isAgeAproximated" name="isAgeAproximated" [(ngModel)]="newPet.IsAgeAproximated">
             <label class="form-check-label" for="isAgeAproximated">
                 Aproximated
             </label>
-          </div>
+        </div>
     </div>
-    <div class = "d-flex row justify-content-end">
-        <button (click)="AddPet()" class="btn btn-primary col-sm-3">Add</button>
+    <div class="d-flex row justify-content-end mt-2">
+        <button (click)="AddPet(); petForm.reset()" class="btn btn-primary col-sm-3">Add</button>
     </div>
-</div>
-
+</form>
