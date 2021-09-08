@@ -24,20 +24,12 @@ export class AddPetComponent implements OnInit {
 
   AddPet()
   {
-    var newPet = 
-    {
-      Id: 0,
-      Name: this.newPet.Name,
-      Age: this.newPet.Age,
-      IsAgeAproximated: this.newPet.IsAgeAproximated
-    }
-    
-    this.petsApiService.addPet(newPet)
+    this.petsApiService.addPet(this.newPet)
     .subscribe({
       next: data=> {
-        this.newPet.Name = "";
-        this.newPet.Age = 0;
-        this.newPet.IsAgeAproximated=false;
+        this.newPet.name = "";
+        this.newPet.age = 0;
+        this.newPet.isAgeAproximated=false;
         this.newPetSuccessEvent.emit(data);
       },
       error: error => {

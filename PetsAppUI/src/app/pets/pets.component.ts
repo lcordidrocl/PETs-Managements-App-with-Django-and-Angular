@@ -29,7 +29,7 @@ export class PetsComponent implements OnInit {
     this.petsApiService.deletePet(id)
     .subscribe({
       next: data => {
-        this.Pets = this.Pets.filter(pet => pet.Id != id);
+        this.Pets = this.Pets.filter(pet => pet.id != id);
       },
       error: error => {
         console.error(error);

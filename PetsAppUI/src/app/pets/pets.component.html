@@ -28,10 +28,10 @@ data-backdrop = "static" data-keyboard = "false">
     </thead>
     <tbody>
         <tr *ngFor="let pet of Pets">
-            <td>{{pet.Name}}</td>
-            <td>{{pet.Age}}</td>
+            <td>{{pet.name}}</td>
+            <td>{{pet.age}}</td>
             <button class ="btn btn-close"
-            (click)="deletePet(pet.Id)"></button>
+            (click)="deletePet(pet.id)"></button>
         </tr>
     </tbody>
 </table>

@@ -23,7 +23,7 @@ class PetsApi(APIView):
 
     def delete(self, request, id, format = None):
         try:
-            existingPet = Pet.objects.get(Id = id)
+            existingPet = Pet.objects.get(id = id)
             existingPet.delete()
             return Response(status = status.HTTP_204_NO_CONTENT)
         except Pet.DoesNotExist:
