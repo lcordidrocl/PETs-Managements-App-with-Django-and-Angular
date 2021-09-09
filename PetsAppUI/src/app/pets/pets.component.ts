@@ -10,26 +10,41 @@ import { IPet } from './models/IPet';
 export class PetsComponent implements OnInit {
 
   Pets: IPet[] = [];
-  constructor(private petsApiService: PetsApiService) { }
+  FilteredPets: IPet[] = [];
+
+  constructor(private _petsApiService: PetsApiService) { }
+
+  private _nameFilter: string = "";
+  get nameFilter(): string
+  {
+    return this._nameFilter;
+  }
+  set nameFilter(value: string)
+  {
+    this._nameFilter = value;
+    this.FilteredPets = this.Pets.filter(pet => pet.name.toLowerCase().indexOf(value.toLowerCase())!==-1);
+  }
 
   ngOnInit(): void {
     this.getPets();
   }
 
   getPets() {
-    this.petsApiService.getPets()
+    this._petsApiService.getPets()
       .subscribe(
-        pets => {
-          this.Pets = pets
+        pets => { 
+          this.Pets = pets;
+          this.FilteredPets = pets;
         }
       );
   }
 
   deletePet(id: number) {
-    this.petsApiService.deletePet(id)
+    this._petsApiService.deletePet(id)
     .subscribe({
       next: data => {
         this.Pets = this.Pets.filter(pet => pet.id != id);
+        this.FilteredPets = this.FilteredPets.filter(pet => pet.id != id);
       },
       error: error => {
         console.error(error);

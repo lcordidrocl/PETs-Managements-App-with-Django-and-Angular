@@ -4,6 +4,8 @@ data-backdrop = "static" data-keyboard = "false">
     New Pets
 </button>
 
+<input type="text" class="form-control" style="width:auto" [(ngModel)]="nameFilter" placeholder="Search pets by name">
+
 <!-- Modal -->
 <div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -27,7 +29,7 @@ data-backdrop = "static" data-keyboard = "false">
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let pet of Pets">
+        <tr *ngFor="let pet of FilteredPets">
             <td>{{pet.name}}</td>
             <td>{{pet.age}}</td>
             <button class ="btn btn-close"
