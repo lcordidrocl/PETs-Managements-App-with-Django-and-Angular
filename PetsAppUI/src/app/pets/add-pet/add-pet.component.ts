@@ -29,7 +29,6 @@ export class AddPetComponent implements OnInit {
     {
       this.newPet.age = formatedAgeDate;
     }
-    console.log(this.newPet);
     this._petsApiService.addPet(this.newPet)
     .subscribe({
       next: data=> {
