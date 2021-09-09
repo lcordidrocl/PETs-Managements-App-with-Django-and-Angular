@@ -10,7 +10,7 @@ import { Pet } from '../models/Pet';
 })
 export class AddPetComponent implements OnInit {
 
-  constructor(private petsApiService: PetsApiService) { }
+  constructor(private _petsApiService: PetsApiService) { }
 
   @Output() newPetSuccessEvent = new EventEmitter<IPet>();
 
@@ -19,15 +19,13 @@ export class AddPetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){}
-
   AddPet()
   {
-    this.petsApiService.addPet(this.newPet)
+    this._petsApiService.addPet(this.newPet)
     .subscribe({
       next: data=> {
         this.newPet.name = "";
-        this.newPet.age = 0;
+        this.newPet.age = new Date();
         this.newPet.isAgeAproximated=false;
         this.newPetSuccessEvent.emit(data);
       },

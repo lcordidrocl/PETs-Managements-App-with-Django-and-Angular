@@ -4,7 +4,7 @@ export class Pet implements IPet {
     constructor(
         public id: number = 0,
         public name: string = '',
-        public age: number = 0,
+        public age: Date = new Date(),
         public isAgeAproximated: boolean = false
     ) { }
 }

@@ -1,15 +1,15 @@
 <form class="form-group row" #petForm="ngForm">
     <div class="row">
-        <label class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-7">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
             <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newPet.name" placeholder="pet's name" required #name="ngModel">
             <label [hidden]="name.valid || name.pristine"> name required</label>
         </div>
     </div>
     <div class="row">
-        <label class="col-sm-2 col-form-label">Age</label>
-        <div class="col-sm-7">
-            <input type="number" class="form-control" id="age" name="age" [(ngModel)]="newPet.age" placeholder="pet's age in years" required #age="ngModel">
+        <label class="col-sm-3 col-form-label">Birth Date</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="age" name="age" [(ngModel)]="newPet.age" placeholder="pet's birth date" required #age="ngModel">
         </div>
         <div class="form-check col-sm-2">
             <input class="form-check-input" type="checkbox" id="isAgeAproximated" name="isAgeAproximated" [(ngModel)]="newPet.isAgeAproximated">
