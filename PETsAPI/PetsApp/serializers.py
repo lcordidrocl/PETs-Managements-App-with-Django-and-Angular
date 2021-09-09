@@ -4,4 +4,4 @@ from PetsApp.models import Pet
 class PetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
-        fields = ('id', 'name', 'age', 'isAgeAproximated')
+        fields = ('id', 'name', 'birthDate', 'isAgeAproximated')

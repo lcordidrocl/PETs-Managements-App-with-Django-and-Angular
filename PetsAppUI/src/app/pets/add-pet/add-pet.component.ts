@@ -16,7 +16,7 @@ export class AddPetComponent implements OnInit {
   @Output() newPetSuccessEvent = new EventEmitter<IPet>();
 
   newPet = new Pet();
-  petAge: Date = new Date();
+  birthDate: Date = new Date();
 
   ngOnInit(): void {
   }
@@ -24,10 +24,10 @@ export class AddPetComponent implements OnInit {
   AddPet()
   {
     // format date to the date formate the API accepts
-    var formatedAgeDate = this.datePipe.transform(this.petAge, 'yyyy-MM-dd');
+    var formatedAgeDate = this.datePipe.transform(this.birthDate, 'yyyy-MM-dd');
     if(formatedAgeDate)
     {
-      this.newPet.age = formatedAgeDate;
+      this.newPet.birthDate = formatedAgeDate;
     }
     this._petsApiService.addPet(this.newPet)
     .subscribe({
