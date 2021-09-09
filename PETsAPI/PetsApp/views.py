@@ -10,16 +10,22 @@ from PetsApp.serializers import PetSerializer
 class PetsApi(APIView):
 
     def get(self, request, format = None):
-        pets = Pet.objects.all()
-        petSerializer = PetSerializer(pets, many = True)
-        return Response(petSerializer.data)
+        try:
+            pets = Pet.objects.all()
+            petSerializer = PetSerializer(pets, many = True)
+            return Response(petSerializer.data)
+        except Exception as e:
+            print(e)
     
     def post(self, request, format = None):
-        petSerializer = PetSerializer(data = request.data)
-        if petSerializer.is_valid():
-            petSerializer.save()
-            return Response(petSerializer.data, status = status.HTTP_201_CREATED)
-        return Response(petSerializer.errors, status = status.HTTP_400_BAD_REQUEST)
+        try:
+            petSerializer = PetSerializer(data = request.data)
+            if petSerializer.is_valid():
+                petSerializer.save()
+                return Response(petSerializer.data, status = status.HTTP_201_CREATED)
+            return Response(petSerializer.errors, status = status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            print(e)
 
     def delete(self, request, id, format = None):
         try:
@@ -28,6 +34,8 @@ class PetsApi(APIView):
             return Response(status = status.HTTP_204_NO_CONTENT)
         except Pet.DoesNotExist:
             return Response(status = status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            print(e)
 
     
 
