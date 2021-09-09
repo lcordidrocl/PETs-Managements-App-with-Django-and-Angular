@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PETsAPIService } from '../Shared/PETsAPI.service';
+import { PetsApiService } from '../shared/pets-api.service';
 import { IPet } from './models/IPet';
 
 @Component({
@@ -10,7 +10,7 @@ import { IPet } from './models/IPet';
 export class PetsComponent implements OnInit {
 
   Pets: IPet[] = [];
-  constructor(private petsApiService: PETsAPIService) { }
+  constructor(private petsApiService: PetsApiService) { }
 
   ngOnInit(): void {
     this.getPets();

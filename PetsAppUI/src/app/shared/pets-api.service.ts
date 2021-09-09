@@ -4,12 +4,11 @@ import { Observable } from 'rxjs';
 import { IPet } from '../pets/models/IPet';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
+export class PetsApiService {
 
-export class PETsAPIService
-{
-    readonly baseURL = "http://127.0.0.1:8000/pet";
+  readonly baseURL = "http://127.0.0.1:8000/pet";
 
     constructor(private httpClient: HttpClient) {}
 
@@ -17,14 +16,7 @@ export class PETsAPIService
     {
         return this.httpClient.get<IPet[]>(this.baseURL);
     }
-
-    /* to be implemented   
-    getPet(id: number)
-    {
-        return this.httpClient.get<any[]>(this.baseURL + `/${id}` );
-    }
-    */
-
+    
     addPet(pet: IPet)
     {
         return this.httpClient.post<IPet>(this.baseURL, pet);

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { PETsAPIService } from './Shared/PETsAPI.service';
+import { PetsApiService } from './shared/pets-api.service';
 import { PetsComponent } from './pets/pets.component';
 import { AddPetComponent } from './pets/add-pet/add-pet.component';
 
@@ -23,7 +23,7 @@ import { AddPetComponent } from './pets/add-pet/add-pet.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PETsAPIService],
+  providers: [PetsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { PETsAPIService } from 'src/app/Shared/PETsAPI.service';
+import { PetsApiService } from '../../shared/pets-api.service';
 import { IPet } from '../models/IPet';
 import { Pet } from '../models/Pet';
 
@@ -11,7 +10,7 @@ import { Pet } from '../models/Pet';
 })
 export class AddPetComponent implements OnInit {
 
-  constructor(private petsApiService: PETsAPIService) { }
+  constructor(private petsApiService: PetsApiService) { }
 
   @Output() newPetSuccessEvent = new EventEmitter<IPet>();
 
