@@ -10,12 +10,14 @@ import { DatePipe } from '@angular/common';
 import { PetsApiService } from './shared/pets-api.service';
 import { PetsComponent } from './pets/pets.component';
 import { AddPetComponent } from './pets/add-pet/add-pet.component';
+import { YearsToNowPipe } from './shared/pipes/years-to-now.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetsComponent,
-    AddPetComponent
+    AddPetComponent,
+    YearsToNowPipe
   ],
   imports: [
     BrowserModule,
