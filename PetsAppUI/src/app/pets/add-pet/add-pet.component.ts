@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PetsApiService } from '../../shared/pets-api.service';
+import { PetsApiService } from '../../shared/services/pets-api.service';
 import { IPet } from '../models/IPet';
 import { Pet } from '../models/Pet';
 import { DatePipe } from '@angular/common';

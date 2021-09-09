@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PetsApiService } from '../shared/pets-api.service';
+import { PetsApiService } from '../shared/services/pets-api.service';
 import { YearsToNowPipe } from '../shared/pipes/years-to-now.pipe';
 import { IPet } from './models/IPet';
 

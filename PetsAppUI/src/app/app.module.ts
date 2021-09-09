@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
-import { PetsApiService } from './shared/pets-api.service';
+import { PetsApiService } from './shared/services/pets-api.service';
 import { PetsComponent } from './pets/pets.component';
 import { AddPetComponent } from './pets/add-pet/add-pet.component';
 import { YearsToNowPipe } from './shared/pipes/years-to-now.pipe';
