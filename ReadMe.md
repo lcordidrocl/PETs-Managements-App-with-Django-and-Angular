@@ -56,7 +56,6 @@ We can create a new folder with the following commands:
 <br>
 
 - `mkdir petsAppRepository`
-<br>
 
 - `cd petsAppRepository`
 
