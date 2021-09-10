@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"
     working_dir: /api
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
   ui:
     container_name: ui
     build:
