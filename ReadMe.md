@@ -28,13 +28,13 @@ The app is dockerized for easy portability.
 
 ### Things to Improve:
 It would be great to make use of Reactive Forms instead of Template Driven forms.
-Pet registration could be improved, adding validation to the pet name, like the max length it allows. It woyuld be nice to add the max date allowed for the pet's birthdate. (the app currently allows a pet to be registered with a date greater than today, which makes no sense at all)
+Pet registration could be improved, adding validation to the pet name, like the max length it allows. It would be nice to add the max date allowed for the pet's birthdate. (the app currently allows a pet to be registered with a date greater than today, which makes no sense at all)
 <br>
 <br>
 
 ## Ubuntu installation steps
 
-In order to run locally this application, we need to clone the git repository and run the docker compose comamand.
+In order to run locally this application, we need to clone the git repository and run the docker compose command.
 The ubuntu system needs to have installed the following packages: git, docker and docker compose
 
 if git is not installed then run this commands:
