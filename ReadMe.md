@@ -80,14 +80,14 @@ Get sure we are standing in the root of the cloned repo. For that run the follow
 Standing in the root of the repository, run the docker compose command that will compose the application up:
 <br> 
 
--`sudo docker-compose -f docker/docker-compose.yml up`
+- `sudo docker-compose -f docker/docker-compose.yml up`
 
 You will know when docker finishes building the app once you see the following messages in the console:
 
-ui     | ** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
-ui     | 
-ui     | 
-ui     | ✔ Compiled successfully.
+ui     | ** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ ** </br>
+ui     | </br>
+ui     | </br>
+ui     | ✔ Compiled successfully. </br><br>
 
 **That's All!**
 <br>
