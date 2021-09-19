@@ -8,8 +8,6 @@ from PetsApp.serializers import PetSerializer
 
 import logging
 
-from PetsApp.services import newPetsService
-
 # Manage Pets
 class PetsApi(APIView):
 
@@ -19,20 +17,17 @@ class PetsApi(APIView):
             petSerializer = PetSerializer(pets, many = True)
             return Response(petSerializer.data)
         except Exception as e:
-            print(e)
+            logging.warning(e)
     
     def post(self, request, format = None):
         try:
             petSerializer = PetSerializer(data = request.data)
             if petSerializer.is_valid():
                 petSerializer.save()
-                age = newPetsService.getAge(self, petSerializer.data['birthDate'])
-                logging.warning(age)
-                # Add Age to Pets model, and include used above service to calculate it before storing it
                 return Response(petSerializer.data, status = status.HTTP_201_CREATED)
             return Response(petSerializer.errors, status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            print(e)
+            logging.warning(e)
 
     def delete(self, request, id, format = None):
         try:
@@ -42,7 +37,7 @@ class PetsApi(APIView):
         except Pet.DoesNotExist:
             return Response(status = status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            print(e)
+            logging.warning(e)
 
     
 
