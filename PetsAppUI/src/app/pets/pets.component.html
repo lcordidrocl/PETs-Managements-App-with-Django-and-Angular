@@ -1,9 +1,19 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary float-right mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#addPetModal"
+<button  type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#addPetModal"
 data-backdrop = "static" data-keyboard = "false">
     New Pets
 </button>
-<input type="text" class="form-control" style="width:auto" [(ngModel)]="nameFilter" placeholder="Search pets by name">
+
+<div class ="d-flex flex-row m-1">
+    <input class="col-sm-6" type="text" class="form-control" style="width:auto" [(ngModel)]="nameSearchInput" placeholder="Search pets by name">
+    <button class="col-sm-2" type="button" (click)='searchByName()' class="btn btn-primary"> Search by name</button>
+</div>
+
+<div class ="d-flex flex-row m-1">
+    <input class="col-sm-6"  type="text" class="form-control" style="width:auto" [(ngModel)]="ageSearchInput" placeholder="Search pets by age">
+    <button class="col-sm-2" type="button" (click)='searchByAge()' class="btn btn-primary"> Search by age</button>
+
+</div>
 
 
 <!-- Modal -->
@@ -29,7 +39,7 @@ data-backdrop = "static" data-keyboard = "false">
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let pet of FilteredPets">
+        <tr *ngFor="let pet of Pets">
             <td>{{pet.name}}</td>
             <td>{{ pet.birthDate | yearsToNow}}</td>
             <td (click)="deletePet(pet.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

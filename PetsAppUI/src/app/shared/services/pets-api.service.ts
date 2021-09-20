@@ -17,6 +17,16 @@ export class PetsApiService {
         return this.httpClient.get<IPet[]>(this.baseURL);
     }
     
+    getPetsByAge(age: number): Observable<IPet[]>
+    {
+        return this.httpClient.get<IPet[]>(this.baseURL + `/age/${age}`);
+    }
+
+    getPetsByName(name: string):Observable<IPet[]>
+    {
+      return this.httpClient.get<IPet[]>(this.baseURL + `/name/${name}`);
+    }
+
     addPet(pet: IPet)
     {
         return this.httpClient.post<IPet>(this.baseURL, pet);

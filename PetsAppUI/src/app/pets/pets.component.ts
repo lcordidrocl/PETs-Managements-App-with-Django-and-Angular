@@ -11,20 +11,11 @@ import { IPet } from './models/IPet';
 export class PetsComponent implements OnInit {
 
   Pets: IPet[] = [];
-  FilteredPets: IPet[] = [];
 
   constructor(private _petsApiService: PetsApiService) { }
 
-  private _nameFilter: string = "";
-  get nameFilter(): string
-  {
-    return this._nameFilter;
-  }
-  set nameFilter(value: string)
-  {
-    this._nameFilter = value;
-    this.FilteredPets = this.Pets.filter(pet => pet.name.toLowerCase().indexOf(value.toLowerCase())!==-1);
-  }
+  public nameSearchInput: string = "";
+  public ageSearchInput: number = 0;
 
   ngOnInit(): void {
     this.getPets();
@@ -35,9 +26,34 @@ export class PetsComponent implements OnInit {
       .subscribe(
         pets => { 
           this.Pets = pets;
-          this.FilteredPets = pets;
         }
       );
+  }
+
+  searchByName(){
+    this._petsApiService.getPetsByName(this.nameSearchInput)
+    .subscribe({
+      next: data =>
+      {
+        this.Pets = data;
+      },
+      error: error => {
+        console.error(error);
+      }
+    })
+  }
+  
+  searchByAge(){
+    this._petsApiService.getPetsByAge(this.ageSearchInput)
+    .subscribe({
+      next: data =>
+      {
+        this.Pets = data;
+      },
+      error: error => {
+        console.error(error);
+      }
+    })
   }
 
   deletePet(id: number) {
@@ -45,7 +61,6 @@ export class PetsComponent implements OnInit {
     .subscribe({
       next: data => {
         this.Pets = this.Pets.filter(pet => pet.id != id);
-        this.FilteredPets = this.FilteredPets.filter(pet => pet.id != id);
       },
       error: error => {
         console.error(error);

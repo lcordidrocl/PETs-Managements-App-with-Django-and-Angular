@@ -10,7 +10,6 @@ import logging
 
 # Manage Pets
 class PetsApi(APIView):
-
     def get(self, request, format = None):
         try:
             pets = Pet.objects.all()
