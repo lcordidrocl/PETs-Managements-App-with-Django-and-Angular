@@ -1,4 +1,5 @@
 from django.db import models
+from PetsApp.services import datetimeService
 
 # Create your models here.
 class Pet(models.Model):
@@ -6,4 +7,12 @@ class Pet(models.Model):
     name = models.CharField(max_length = 255)
     birthDate = models.DateField()
     isAgeAproximated = models.BooleanField(default=False)
+    age = models.IntegerField(null = True)
+
+    def get_age(self):
+        return datetimeService.getAge(self, self.birthDate)
     
+    def save(self, *args, **kwargs):
+        self.age = self.get_age()
+        super(Pet, self).save(*args, **kwargs)
+

@@ -13,8 +13,9 @@ class PetsApi(APIView):
 
     def get(self, request, format = None):
         try:
-            pets = Pet.objects.all()
+            pets = Pet.objects.filter(age = 2)
             petSerializer = PetSerializer(pets, many = True)
+            logging.warning(petSerializer.data)
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
