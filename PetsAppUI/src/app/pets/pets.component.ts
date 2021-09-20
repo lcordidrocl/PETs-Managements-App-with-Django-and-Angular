@@ -30,8 +30,8 @@ export class PetsComponent implements OnInit {
       );
   }
 
-  searchByName(){
-    this._petsApiService.getPetsByName(this.nameSearchInput)
+  searchByName(name: string){
+    this._petsApiService.getPetsByName(name)
     .subscribe({
       next: data =>
       {
@@ -43,8 +43,8 @@ export class PetsComponent implements OnInit {
     })
   }
   
-  searchByAge(){
-    this._petsApiService.getPetsByAge(this.ageSearchInput)
+  searchByAge(age: number){
+    this._petsApiService.getPetsByAge(age)
     .subscribe({
       next: data =>
       {
