@@ -13,13 +13,12 @@ class PetsApi(APIView):
 
     def get(self, request, format = None):
         try:
-            pets = Pet.objects.filter(age = 2)
+            pets = Pet.objects.all()
             petSerializer = PetSerializer(pets, many = True)
-            logging.warning(petSerializer.data)
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
-    
+
     def post(self, request, format = None):
         try:
             petSerializer = PetSerializer(data = request.data)
@@ -41,5 +40,22 @@ class PetsApi(APIView):
             logging.warning(e)
 
     
+class PetsByAge(APIView):
+    def get(self, request, urlAge, format = None):
+        try:
+            pets = Pet.objects.filter(age = urlAge)
+            petSerializer = PetSerializer(pets, many = True)
+            return Response(petSerializer.data)
+        except Exception as e:
+            logging.warning(e)
 
 
+class PetsByName(APIView):
+    def get(self, request, urlName, format = None):
+        try:
+            pets = Pet.objects.filter(name = urlName)
+            petSerializer = PetSerializer(pets, many = True)
+            return Response(petSerializer.data)
+        except Exception as e:
+            logging.warning(e)
+    
