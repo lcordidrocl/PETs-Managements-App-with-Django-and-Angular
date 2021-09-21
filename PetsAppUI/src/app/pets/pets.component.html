@@ -6,12 +6,12 @@ data-backdrop = "static" data-keyboard = "false">
 
 <div class ="d-flex flex-row m-1">
     <input class="col-sm-6" type="text" class="form-control" style="width:auto" id="nameSearchInput" name="nameSearchInput" #nameSearchInput placeholder="Search pets by name">
-    <button class="col-sm-2" type="button" (click)='searchByName(nameSearchInput.value)' class="btn btn-primary"> Search by name</button>
+    <button class="col-sm-2" type="button" (click)="searchByName(nameSearchInput.value)" class="btn btn-primary"> Search by name</button>
 </div>
 
 <div class ="d-flex flex-row m-1">
-    <input class="col-sm-6"  type="integer" class="form-control" style="width:auto" id="ageSearchInput" name="ageSearchInput" #ageSearchInput placeholder="Search pets by age">
-    <button class="col-sm-2" type="button" (click)='searchByAge(ageSearchInput.value)' class="btn btn-primary"> Search by age</button>
+    <input class="col-sm-6"  type="number" [(ngModel)] ='ageSearchInput' style="width:auto"  placeholder="Search pets by age">
+    <button class="col-sm-2" type="button" (click)="searchByAge()" class="btn btn-primary"> Search by age</button>
 
 </div>
 

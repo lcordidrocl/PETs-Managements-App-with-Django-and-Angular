@@ -14,7 +14,6 @@ export class PetsComponent implements OnInit {
 
   constructor(private _petsApiService: PetsApiService) { }
 
-  public nameSearchInput: string = "";
   public ageSearchInput: number = 0;
 
   ngOnInit(): void {
@@ -43,8 +42,8 @@ export class PetsComponent implements OnInit {
     })
   }
   
-  searchByAge(age: number){
-    this._petsApiService.getPetsByAge(age)
+  searchByAge(){
+    this._petsApiService.getPetsByAge(this.ageSearchInput)
     .subscribe({
       next: data =>
       {
