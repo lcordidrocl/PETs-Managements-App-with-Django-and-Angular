@@ -1,42 +1,43 @@
-<!-- Button trigger modal -->
-<div class="row">
+<div class="row mt-4">
     <div class="col-sm-5 m-1">
+        <!-- Search by Name -->
         <div class="d-flex flex-row">
             <input type="text" class="col-sm-6" id="nameSearchInput" name="nameSearchInput" #nameSearchInput
                 placeholder="Search pets by name">
-            <button type="button" class="col-sm-1" style="margin-left:auto"
+            <button type="button" class="col-sm-1" style="margin-left:2rem"
                 (click)="searchByName(nameSearchInput.value)" class="btn btn-primary"> Search by name</button>
         </div>
-
+        <!-- Search by Age -->
         <div class="d-flex flex-row mt-1">
             <input class="col-sm-6" type="number" [(ngModel)]='ageSearchInput' placeholder="Search pets by age">
-            <button class="col-sm-1 ml-auto" type="button" style="margin-left:auto" (click)="searchByAge()"
+            <button class="col-sm-1" type="button" style="margin-left:2rem" (click)="searchByAge()"
                 class="btn btn-primary"> Search by age</button>
 
         </div>
     </div>
+    <!-- New Pets -->
     <div class="col-sm-5 d-flex">
         <button type="button" class="btn btn-primary" style="margin-left: auto;" data-bs-toggle="modal" data-bs-target="#addPetModal"
             data-backdrop="static" data-keyboard="false">
             New Pets
         </button>
     </div>
-
 </div>
 
-
-<div class="col-sm-10 mt-3">
+<div class="col-sm-10 mt-4">
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Birthdate</th>
                 <th>Age (years)</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let pet of Pets">
                 <td>{{pet.name}}</td>
-                <td>{{ pet.birthDate | yearsToNow}}</td>
+                <td>{{pet.birthDate}}</td>
+                <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
                 <td (click)="deletePet(pet.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                         <path
@@ -50,8 +51,6 @@
     </table>
     
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
