@@ -8,12 +8,17 @@ from PetsApp.serializers import PetSerializer
 
 import logging
 
+from rest_framework.pagination import LimitOffsetPagination
+
 # Manage Pets
 class PetsApi(APIView):
+
     def get(self, request, format = None):
         try:
             pets = Pet.objects.all()
-            petSerializer = PetSerializer(pets, many = True)
+            paginator = LimitOffsetPagination()
+            result_page = paginator.paginate_queryset(pets, request)
+            petSerializer = PetSerializer(result_page, many = True)
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
