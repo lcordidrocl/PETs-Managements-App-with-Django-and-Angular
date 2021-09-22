@@ -69,11 +69,6 @@ export class PetsComponent implements OnInit {
     });
   }
 
-  succesAddedPet(pet: IPet)
-  {
-    this.Pets.push(pet);
-  }
-
   fetchNext()
   {
     this._currentOffset += this._petsApiService.limit; // update back to return count of items, validate upper limit

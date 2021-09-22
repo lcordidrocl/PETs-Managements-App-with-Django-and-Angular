@@ -15,13 +15,6 @@
 
         </div>
     </div>
-    <!-- New Pets -->
-    <div class="col-sm-5 d-flex">
-        <button type="button" class="btn btn-primary" style="margin-left: auto;" data-bs-toggle="modal" data-bs-target="#addPetModal"
-            data-backdrop="static" data-keyboard="false">
-            New Pets
-        </button>
-    </div>
 </div>
 
 <div class="col-sm-10 mt-4">
@@ -59,20 +52,5 @@
         <button type="button" class="btn btn-primary col-sm-1" (click)="fetchNext()">
             next
         </button>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addPetModal">Register a new pet</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <app-add-pet (newPetSuccessEvent)="succesAddedPet($event)"></app-add-pet>
-            </div>
-        </div>
     </div>
 </div>

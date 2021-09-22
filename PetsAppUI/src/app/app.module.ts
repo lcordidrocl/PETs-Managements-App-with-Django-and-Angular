@@ -11,13 +11,15 @@ import { PetsApiService } from './shared/services/pets-api.service';
 import { PetsComponent } from './pets/pets.component';
 import { AddPetComponent } from './pets/add-pet/add-pet.component';
 import { YearsToNowPipe } from './shared/pipes/years-to-now.pipe';
+import { PetsManagementComponent } from './pets/pets-management/pets-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetsComponent,
     AddPetComponent,
-    YearsToNowPipe
+    YearsToNowPipe,
+    PetsManagementComponent
   ],
   imports: [
     BrowserModule,

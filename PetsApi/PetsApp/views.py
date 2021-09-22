@@ -19,6 +19,7 @@ class PetsApi(APIView):
             paginator = LimitOffsetPagination()
             result_page = paginator.paginate_queryset(pets, request)
             petSerializer = PetSerializer(result_page, many = True)
+            logging.warning(paginator.count)
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
