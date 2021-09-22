@@ -8,13 +8,15 @@ import { IPet } from '../../pets/models/IPet';
 })
 export class PetsApiService {
 
+  readonly limit = 10;
+
   readonly baseURL = "http://127.0.0.1:8000/pet";
 
     constructor(private httpClient: HttpClient) {}
 
-    getPets(): Observable<IPet[]>
+    getPets(offset: number): Observable<IPet[]>
     {
-        return this.httpClient.get<IPet[]>(this.baseURL);
+        return this.httpClient.get<IPet[]>(this.baseURL + `?offset=${offset}`);
     }
     
     getPetsByAge(age: number): Observable<IPet[]>
