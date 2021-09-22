@@ -14,13 +14,14 @@ export class PetsComponent implements OnInit {
   constructor(private _petsApiService: PetsApiService) { }
 
   public ageSearchInput: number = 0;
+  private _currentOffset: number = 0;
 
   ngOnInit(): void {
-    this.getPets();
+    this.getPets(this._currentOffset);
   }
 
-  getPets() {
-    this._petsApiService.getPets()
+  getPets(offset: number) {    
+    this._petsApiService.getPets(offset)
       .subscribe(
         pets => { 
           this.Pets = pets;
@@ -28,6 +29,7 @@ export class PetsComponent implements OnInit {
       );
   }
 
+  //#region  Search
   searchByName(name: string){
     this._petsApiService.getPetsByName(name)
     .subscribe({
@@ -53,7 +55,8 @@ export class PetsComponent implements OnInit {
       }
     })
   }
-
+  //#endregion
+  
   deletePet(id: number) {
     this._petsApiService.deletePet(id)
     .subscribe({
@@ -69,5 +72,24 @@ export class PetsComponent implements OnInit {
   succesAddedPet(pet: IPet)
   {
     this.Pets.push(pet);
+  }
+
+  fetchNext()
+  {
+    this._currentOffset += this._petsApiService.limit; // update back to return count of items, validate upper limit
+    this.getPets(this._currentOffset);
+  }
+
+  fetchPrevious()
+  {
+    if (this._currentOffset - this._petsApiService.limit > 0)
+    {
+      this._currentOffset -= this._petsApiService.limit;
+    }
+    else
+    {
+      this._currentOffset = 0;
+    }
+    this.getPets(this._currentOffset);
   }
 }
