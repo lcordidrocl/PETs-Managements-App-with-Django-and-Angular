@@ -1,92 +1,101 @@
+<div class="container">
 
-<div class="d-flex flex-row justify-content-between">
-    <!-- New Pets -->
-    <div class="col-sm-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal"
-            data-backdrop="static" data-keyboard="false">
-            Add New Pets
-        </button>
-    </div>
-
-    <!-- Delete Pets -->
-    <div class="col-sm-2">
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePetModal"
-            data-backdrop="static" data-keyboard="false">
-            Delete Existing Pets
-        </button>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-5 mt-4" *ngIf="AddedPets.length">
-        <h3>Recently added pets</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Birthdate</th>
-                    <th>Age (years)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pet of AddedPets">
-                    <td>{{pet.name}}</td>
-                    <td>{{pet.birthDate}}</td>
-                    <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="d-flex flex-row justify-content-between">
+        <!-- New Pets -->
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal"
+                data-backdrop="static" data-keyboard="false">
+                Add New Pets
+            </button>
+        </div>
+    
+        <!-- Delete Pets -->
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePetModal"
+                data-backdrop="static" data-keyboard="false">
+                Delete Existing Pets
+            </button>
+        </div>
     </div>
     
-    <div class="col-sm-5 mt-4" *ngIf="DeletedPets.length">
-        <h3>Recently Removed pets</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Birthdate</th>
-                    <th>Age (years)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pet of DeletedPets">
-                    <td>{{pet.name}}</td>
-                    <td>{{pet.birthDate}}</td>
-                    <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>    
-<div>
-
-<!-- Add Pets Modal -->
-<div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addPetModal">Register a new pet</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+    <!-- Recently added and deleted pets -->
+    <div class="d-flex flex-row justify-content-between">
+        <div class="col-sm-5 mt-4" >
+            <div *ngIf="AddedPets.length">
+                <h3>Recently added pets</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthdate</th>
+                            <th>Age (years)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pet of AddedPets">
+                            <td>{{pet.name}}</td>
+                            <td>{{pet.birthDate}}</td>
+                            <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="modal-body">
-                <app-add-pet (newPetSuccessEvent)="succesAddedPet($event)"></app-add-pet>
+        </div>
+        
+        <div class="col-sm-5 mt-4" >
+            <div *ngIf="DeletedPets.length">
+                <h3>Recently Deleted pets</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthdate</th>
+                            <th>Age (years)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pet of DeletedPets">
+                            <td>{{pet.name}}</td>
+                            <td>{{pet.birthDate}}</td>
+                            <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+        </div>  
+    <div>
+    
+    <!-- Add Pets Modal -->
+    <div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPetModal">Register a new pet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <app-add-pet (newPetSuccessEvent)="succesAddedPet($event)"></app-add-pet>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<!-- Delete Pets Modal -->
-<div class="modal fade" id="deletePetModal" tabindex="-1" aria-labelledby="deletePetModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deletePetModal">Delete existing pets</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <app-delete-pet (deletePetSuccessEvent)="successfullyDeletedPet($event)"></app-delete-pet>
+    
+    
+    <!-- Delete Pets Modal -->
+    <div class="modal fade" id="deletePetModal" tabindex="-1" aria-labelledby="deletePetModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deletePetModal">Delete existing pets</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <app-delete-pet (deletePetSuccessEvent)="successfullyDeletedPet($event)"></app-delete-pet>
+                </div>
             </div>
         </div>
     </div>
+    
+    
 </div>
-

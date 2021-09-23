@@ -30,7 +30,7 @@ export class DeletePetComponent implements OnInit {
     {
       this.deletePet.birthDate = formatedAgeDate;
     }
-    this._petsApiService.deletePet(18)
+    this._petsApiService.deletePet(19)
     .subscribe({
       next: data=> {
         this.deletePetSuccessEvent.emit(data);
