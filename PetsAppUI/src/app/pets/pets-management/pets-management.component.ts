@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PetsApiService } from 'src/app/shared/services/pets-api.service';
 import { IPet } from '../models/IPet';
-import { Pet } from '../models/Pet';
 
 @Component({
   selector: 'app-pets-management',
@@ -10,7 +9,8 @@ import { Pet } from '../models/Pet';
 })
 export class PetsManagementComponent implements OnInit {
 
-  Pets: IPet[] = [];
+  AddedPets: IPet[] = [];
+  DeletedPets: IPet[] = [];
 
   constructor(private _petsApiService: PetsApiService) { }
 
@@ -19,6 +19,11 @@ export class PetsManagementComponent implements OnInit {
 
   succesAddedPet(pet: IPet)
   {
-    this.Pets.push(pet);
+    this.AddedPets.push(pet);
+  }
+
+  successfullyDeletedPet(pet: IPet)
+  {
+    this.DeletedPets.push(pet);
   }
 }

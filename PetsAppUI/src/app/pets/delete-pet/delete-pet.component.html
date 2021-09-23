@@ -1,0 +1,18 @@
+<form class="form-group row" #deletePetForm="ngForm" (ngSubmit)="DeletePet(); deletePetForm.reset()">
+    <div class="row">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="deletePet.name" placeholder="pet's name" required #name="ngModel">
+            <label [hidden]="name.valid || name.pristine">name required</label>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-3 col-form-label">Birth Date</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="age" name="age" [(ngModel)]="birthDate" placeholder="pet's birth date" required #age="ngModel">
+        </div>
+    </div>
+    <div class="d-flex row justify-content-end mt-2">
+        <button [disabled]="!deletePetForm.form.valid" type="submit" class="btn btn-primary col-sm-3">Delete</button>
+    </div>
+</form>

@@ -38,7 +38,8 @@ class PetsApi(APIView):
         try:
             existingPet = Pet.objects.get(id = id)
             existingPet.delete()
-            return Response(status = status.HTTP_204_NO_CONTENT)
+            petSerializer = PetSerializer(existingPet)
+            return Response(petSerializer.data, status = status.HTTP_200_OK)
         except Pet.DoesNotExist:
             return Response(status = status.HTTP_404_NOT_FOUND)
         except Exception as e:

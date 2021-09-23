@@ -6,7 +6,7 @@ import { PetsComponent } from './pets/pets.component';
 const routes: Routes = [
   { path: '', redirectTo: '/pets', pathMatch: 'full' },
   { path: 'pets', component: PetsComponent },
-  { path: 'manage/pets', component: PetsManagementComponent}
+  { path: 'manage/pets', component: PetsManagementComponent }
 ];
 
 @NgModule({

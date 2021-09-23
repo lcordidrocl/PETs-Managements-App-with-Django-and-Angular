@@ -12,6 +12,7 @@ import { PetsComponent } from './pets/pets.component';
 import { AddPetComponent } from './pets/add-pet/add-pet.component';
 import { YearsToNowPipe } from './shared/pipes/years-to-now.pipe';
 import { PetsManagementComponent } from './pets/pets-management/pets-management.component';
+import { DeletePetComponent } from './pets/delete-pet/delete-pet.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PetsManagementComponent } from './pets/pets-management/pets-management.
     PetsComponent,
     AddPetComponent,
     YearsToNowPipe,
-    PetsManagementComponent
+    PetsManagementComponent,
+    DeletePetComponent
   ],
   imports: [
     BrowserModule,
