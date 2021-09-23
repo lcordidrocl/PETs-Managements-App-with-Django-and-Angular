@@ -29,7 +29,7 @@ export class PetsComponent implements OnInit {
       );
   }
 
-  //#region  Search
+  //#region Search
   searchByName(name: string){
     this._petsApiService.getPetsByName(name)
     .subscribe({
@@ -56,6 +56,7 @@ export class PetsComponent implements OnInit {
     })
   }
   //#endregion
+
   fetchNext()
   {
     this._currentOffset += this._petsApiService.limit; // update back to return count of items, validate upper limit

@@ -24,44 +24,14 @@
         <div class="col-sm-5 mt-4" >
             <div *ngIf="AddedPets.length">
                 <h3>Recently added pets</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Birthdate</th>
-                            <th>Age (years)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let pet of AddedPets">
-                            <td>{{pet.name}}</td>
-                            <td>{{pet.birthDate}}</td>
-                            <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <app-pet-list [Pets]="AddedPets"></app-pet-list>
             </div>
         </div>
         
         <div class="col-sm-5 mt-4" >
             <div *ngIf="DeletedPets.length">
-                <h3>Recently Deleted pets</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Birthdate</th>
-                            <th>Age (years)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let pet of DeletedPets">
-                            <td>{{pet.name}}</td>
-                            <td>{{pet.birthDate}}</td>
-                            <td>{{pet.age}} <label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3>Recently deleted pets</h3>
+                <app-pet-list [Pets]="DeletedPets"></app-pet-list>
             </div>  
         </div>  
     <div>

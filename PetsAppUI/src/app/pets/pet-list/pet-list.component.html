@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthdate</th>
+            <th>Age (years)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pet of Pets">
+            <td>{{pet.name}}</td>
+            <td>{{pet.birthDate}}</td>
+            <td>{{pet.age}}<label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
+        </tr>
+    </tbody>
+</table>
