@@ -1,12 +1,17 @@
 # Pet Management APP: Django and Angular
 
 ## About the App
-This application allows registering new pets, looking at existing ones, consulting pets by name, as well as seeing each pet's age.
+This is a simple Pet management Applcation.
+A Pet is defined by it's birthdate and it's Name.
 <br>
 <br>
 
+### Search for Existing pets:
+A user can search for Pets defined in the system, spcifying the Pet's Name or the Pet's age that it is interested in.
+
 ### Register new pets:
-User must define the new pet name and the pet's date of birth.
+There is a management section that allows adding new pets, and deleting existing ones.
+In order to add a new pet, user must define the new pet name and the pet's date of birth.
 
 Not sure about the pet's birthdate?
 Just check the aproximated checkbox! we will keep track of it.
@@ -15,7 +20,12 @@ Just check the aproximated checkbox! we will keep track of it.
 
 ### Remove existing pets
 Want to remove pets from our registry ? 
-Just hit the trash icon for that pet.
+
+In order to delete a pet, the user specify the Pet's name and the Pet's birthdate, which are, as mentioned above, the characteristics that define a pet.
+
+Navigate to the Manage Pets section, and search for existing Pets based on those properties.
+
+Just hit that trash button for those pets you don't want in the system anymore!
 <br>
 <br>
 
@@ -28,7 +38,16 @@ The app is dockerized for easy portability.
 
 ### Things to Improve:
 It would be great to make use of Reactive Forms instead of Template Driven forms.
-Pet registration could be improved, adding validation to the pet name, like the max length it allows. It would be nice to add the max date allowed for the pet's birthdate. (the app currently allows a pet to be registered with a date greater than today, which makes no sense at all)
+
+Pet registration could be improved, adding validation to the pet name, like the max length it allows. 
+It would be nice to add the max date allowed for the pet's birthdate. (the app currently allows a pet to be registered with a date greater than today, which makes no sense at all)
+
+Delete Mechanism might not be the most intuitive approach. It requires a pre-search in which the user needs to know the exact day of birth. So, it needs to use the search section in first place.
+Delete was first part of the search functionalty, though it was moved to the managment section to be consistent with the different views the app offers, and promote separete of concerns. 
+
+The app was tested with few pets, if this app is thought to be used with a big number of pets, the search section could be improved using pagination.
+
+Adding and Deleting new pets were put in a different view taking that in count, so the new pets or the deleted ones do not interfer with a paginated view.
 <br>
 <br>
 
