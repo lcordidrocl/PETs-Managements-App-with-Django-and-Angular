@@ -5,12 +5,12 @@ from PetsApp.services import datetimeService
 class Pet(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length = 255)
-    birthDate = models.DateField()
+    birthdate = models.DateField()
     isAgeAproximated = models.BooleanField(default=False)
     age = models.IntegerField(null = True)
 
     def get_age(self):
-        return datetimeService.getAge(self, self.birthDate)
+        return datetimeService.getAge(self, self.birthdate)
     
     def save(self, *args, **kwargs):
         self.age = self.get_age()

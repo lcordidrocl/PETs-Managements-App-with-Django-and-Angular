@@ -12,7 +12,6 @@ from rest_framework.pagination import LimitOffsetPagination
 
 # Manage Pets
 class PetsApi(APIView):
-
     def get(self, request, format = None):
         try:
             pets = Pet.objects.all()
@@ -73,4 +72,3 @@ class PetsByNameAndBirthdate(APIView):
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
-    

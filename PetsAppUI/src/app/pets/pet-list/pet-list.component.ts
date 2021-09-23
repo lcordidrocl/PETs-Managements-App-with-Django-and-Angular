@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPet } from '../models/IPet';
-import { PetsApiService } from '../../shared/services/pets-api.service';
 
 @Component({
   selector: 'app-pet-list',
