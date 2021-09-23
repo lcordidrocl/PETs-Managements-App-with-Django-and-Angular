@@ -2,7 +2,6 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PetsApiService } from '../../shared/services/pets-api.service';
 import { IPet } from '../models/IPet';
-import { Pet } from '../models/Pet';
 
 @Component({
   selector: 'app-delete-pet',
@@ -12,8 +11,9 @@ import { Pet } from '../models/Pet';
 
 export class DeletePetComponent implements OnInit {
 
-  deletePet = new Pet();
-  birthDate: Date = new Date();
+  deletePetName: string ="";
+  deletePetBirthdate: Date = new Date();
+  deleteExistingPets: IPet[]=[];
 
   constructor(private _petsApiService: PetsApiService, private datePipe: DatePipe) { }
 
@@ -22,19 +22,32 @@ export class DeletePetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  DeletePet()
+  getPetsByNameAndBirthdate()
   {
     // format date to the date formate the API accepts
-    var formatedAgeDate = this.datePipe.transform(this.birthDate, 'yyyy-MM-dd');
+    var formatedAgeDate = this.datePipe.transform(this.deletePetBirthdate, 'yyyy-MM-dd');
     if(formatedAgeDate)
     {
-      this.deletePet.birthDate = formatedAgeDate;
+      this._petsApiService.getPetsByNameAndBirthdate(this.deletePetName, formatedAgeDate)
+      .subscribe({
+        next: data=> {
+          this.deleteExistingPets = data;
+        },
+        error: error => {
+          console.error(error);
+        }
+      });
+      
     }
-    this._petsApiService.deletePet(19)
+  }
+  
+  deletePet(id: number)
+  {
+    this._petsApiService.deletePet(id)
     .subscribe({
       next: data=> {
         this.deletePetSuccessEvent.emit(data);
-        this.deletePet = new Pet();
+        this.deleteExistingPets = this.deleteExistingPets.filter(pet=>pet.id !=id);
       },
       error: error => {
         console.error(error);

@@ -64,4 +64,13 @@ class PetsByName(APIView):
             return Response(petSerializer.data)
         except Exception as e:
             logging.warning(e)
+
+class PetsByNameAndBirthdate(APIView):
+    def get(self, request, urlName, urlBirthdate, format = None):
+        try:
+            pets = Pet.objects.filter(name = urlName, birthdate = urlBirthdate)
+            petSerializer = PetSerializer(pets, many = True)
+            return Response(petSerializer.data)
+        except Exception as e:
+            logging.warning(e)
     

@@ -56,19 +56,6 @@ export class PetsComponent implements OnInit {
     })
   }
   //#endregion
-  
-  deletePet(id: number) {
-    this._petsApiService.deletePet(id)
-    .subscribe({
-      next: data => {
-        this.Pets = this.Pets.filter(pet => pet.id != id);
-      },
-      error: error => {
-        console.error(error);
-      }
-    });
-  }
-
   fetchNext()
   {
     this._currentOffset += this._petsApiService.limit; // update back to return count of items, validate upper limit
