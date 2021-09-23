@@ -14,6 +14,7 @@ import { YearsToNowPipe } from './shared/pipes/years-to-now.pipe';
 import { PetsManagementComponent } from './pets/pets-management/pets-management.component';
 import { DeletePetComponent } from './pets/delete-pet/delete-pet.component';
 import { PetListComponent } from './pets/pet-list/pet-list.component';
+import { PetsSearchComponent } from './pets/pets-search/pets-search.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PetListComponent } from './pets/pet-list/pet-list.component';
     YearsToNowPipe,
     PetsManagementComponent,
     DeletePetComponent,
-    PetListComponent
+    PetListComponent,
+    PetsSearchComponent
   ],
   imports: [
     BrowserModule,

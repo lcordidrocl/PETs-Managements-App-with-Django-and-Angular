@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { PetsApiService } from '../shared/services/pets-api.service';
-import { IPet } from './models/IPet';
+import { PetsApiService } from 'src/app/shared/services/pets-api.service';
+import { IPet } from '../models/IPet';
+
 
 @Component({
-  selector: 'app-pets',
-  templateUrl: './pets.component.html',
-  styleUrls: ['./pets.component.css']
+  selector: 'app-pets-search',
+  templateUrl: './pets-search.component.html',
+  styleUrls: ['./pets-search.component.css']
 })
-export class PetsComponent implements OnInit {
+export class PetsSearchComponent implements OnInit {
 
   Pets: IPet[] = [];
 
@@ -17,7 +18,6 @@ export class PetsComponent implements OnInit {
 
   ngOnInit(): void {  }
 
-  //#region Search
   searchByName(name: string){
     this._petsApiService.getPetsByName(name)
     .subscribe({
@@ -43,5 +43,4 @@ export class PetsComponent implements OnInit {
       }
     })
   }
-  //#endregion
 }
