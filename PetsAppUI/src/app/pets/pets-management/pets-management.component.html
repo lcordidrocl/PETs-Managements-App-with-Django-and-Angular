@@ -1,23 +1,20 @@
-<div class="container">
-
-    <div class="d-flex flex-row justify-content-between">
+<div class="col-sm-10">
+    <div class="d-flex flex-row justify-content-between mt-4">
         <!-- New Pets -->
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal"
                 data-backdrop="static" data-keyboard="false">
                 Add New Pets
             </button>
         </div>
-    
         <!-- Delete Pets -->
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePetModal"
                 data-backdrop="static" data-keyboard="false">
                 Delete Existing Pets
             </button>
         </div>
     </div>
-    
     
     <!-- Recently added and deleted pets -->
     <div class="d-flex flex-row justify-content-between">
@@ -51,7 +48,6 @@
         </div>
     </div>
     
-    
     <!-- Delete Pets Modal -->
     <div class="modal fade" id="deletePetModal" tabindex="-1" aria-labelledby="deletePetModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -65,5 +61,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
 </div>
