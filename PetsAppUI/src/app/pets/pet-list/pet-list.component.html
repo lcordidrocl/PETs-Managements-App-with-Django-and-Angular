@@ -9,7 +9,7 @@
     <tbody>
         <tr *ngFor="let pet of Pets">
             <td>{{pet.name}}</td>
-            <td>{{pet.birthDate}}</td>
+            <td>{{pet.birthdate}}</td>
             <td>{{pet.age}}<label *ngIf='pet.isAgeAproximated'> (estimated)</label></td>
         </tr>
     </tbody>

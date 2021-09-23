@@ -27,7 +27,7 @@ export class AddPetComponent implements OnInit {
     var formatedAgeDate = this.datePipe.transform(this.birthDate, 'yyyy-MM-dd');
     if(formatedAgeDate)
     {
-      this.newPet.birthDate = formatedAgeDate;
+      this.newPet.birthdate = formatedAgeDate;
     }
     this._petsApiService.addPet(this.newPet)
     .subscribe({
