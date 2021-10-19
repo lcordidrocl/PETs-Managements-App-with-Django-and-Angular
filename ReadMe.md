@@ -37,6 +37,11 @@ The app is dockerized for easy portability.
 <br>
 
 ### Things to Improve:
+
+Fix add new pet form - remove reset form ( is aproximaxted null value issues )
+
+Delete search ( leave only name - allow lowercase match )
+
 It would be great to make use of Reactive Forms instead of Template Driven forms.
 
 Pet registration could be improved, adding validation to the pet name, like the max length it allows. 
